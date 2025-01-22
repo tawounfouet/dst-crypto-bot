@@ -1,0 +1,22 @@
+name: Sync to Azure DevOps
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Push to Azure DevOps
+        env:
+          AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
+        run: |
+          git remote add azure https://anything:$AZURE_DEVOPS_PAT@dev.azure.com/datascientest-project/crypto-bot-v2/_git/your-repo
+          git push azure --all --force
