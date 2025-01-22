@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  dst-crypto-bot:
+    build: ./src
+    volumes:
+      - ./shared_data:/app/logs
+
+volumes:
+  shared_data:
+    driver: local
