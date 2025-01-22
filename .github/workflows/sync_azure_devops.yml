@@ -19,11 +19,9 @@ jobs:
       - name: Set up Git
         run: |
           git config --global user.email "thomas.awounfouet@gmail.com"
-          git config --global user.name "ton-nom"
+          git config --global user.name "Thomas Awounfouet"
 
       - name: Push changes to Azure DevOps
         run: |
-          git remote add azure https://dev.azure.com/datascientest-project/_git/crypto-bot-v2
+          git remote add azure https://USER:${{ secrets.AZURE_DEVOPS_TOKEN }}@dev.azure.com/datascientest-project/_git/crypto-bot-v2
           git push azure main
-        env:
-          AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}  # Assure-toi que ce secret est bien défini
