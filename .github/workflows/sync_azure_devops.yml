@@ -3,20 +3,27 @@ name: Sync to Azure DevOps
 on:
   push:
     branches:
-      - '**'
+      - main  # Change en fonction de la branche à surveiller
+      - dev_thomas
+      - dev_nath
+      - dev_lo
+      - dev-ben
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      
-      - name: Push to Azure DevOps
-        env:
-          AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
+      - name: Checkout GitHub repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        uses: actions/setup-git@v2
+
+      - name: Push changes to Azure DevOps
         run: |
-          git remote add azure https://anything:$AZURE_DEVOPS_PAT@dev.azure.com/datascientest-project/crypto-bot-v2/_git/your-repo
-          git push azure --all --force
+          git remote add azure https://dev.azure.com/datascientest-project/_git/crypto-bot-v2
+          git config --global user.email "thomas.awounfouet@gmail.com"
+          git config --global user.name "ton-nom"
+          git push azure main
+        env:
+          AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}  # Utilise un token d'accès personnel
