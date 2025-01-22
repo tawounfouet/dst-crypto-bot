@@ -23,5 +23,5 @@ jobs:
 
       - name: Push changes to Azure DevOps
         run: |
-          git remote add azure https://USER:${{ secrets.AZURE_DEVOPS_TOKEN }}@dev.azure.com/datascientest-project/_git/crypto-bot-v2
+          git remote add azure https://USER:${{ secrets.AZURE_DEVOPS_TOKEN }}@dev.azure.com/datascientest-project/crypto-bot-v2/_git/crypto-bot-v2
           git push azure main
