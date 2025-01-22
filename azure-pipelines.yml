@@ -10,12 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: BuildAndTest
+- job: Build
   steps:
-    - script: echo Hello, world!
-      displayName: 'Run a one-line script'
+    - script: echo Build step
+      displayName: 'Run build'
 
-    - script: |
-        echo Add other tasks to build, test, and deploy your project.
-        echo See https://aka.ms/yaml
-      displayName: 'Run a multi-line script'
+- job: Test
+  dependsOn: Build  # Ce job dépend de "Build", donc s'exécutera après.
+  steps:
+    - script: echo Test step
+      displayName: 'Run tests'
