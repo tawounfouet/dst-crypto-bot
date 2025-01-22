@@ -10,13 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: Build
+- job: BuildAndTest
   steps:
     - script: echo Build step
       displayName: 'Run build'
-
-- job: Test
-  dependsOn: Build  # Ce job dépend de "Build", donc s'exécutera après.
-  steps:
     - script: echo Test step
       displayName: 'Run tests'
+
+
+
