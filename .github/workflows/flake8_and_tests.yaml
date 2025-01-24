@@ -18,6 +18,9 @@ jobs:
           pip install -r dev_requirements.txt
           pip install -r src/requirements.txt
 
+      - name: Install package
+        run: pip install -e .
+
       - name: Run flake8
         uses: py-actions/flake8@v2
 
