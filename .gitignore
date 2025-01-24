@@ -1,0 +1,9 @@
+# Ignore tous les fichiers .pyc
+**/*.pyc
+**/*.bak
+
+# Ignore également le dossier __pycache__
+__pycache__/
+
+# Ignore le fichier .env
+.env

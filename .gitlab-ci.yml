@@ -1,0 +1,23 @@
+variables:
+  JUPYTER_PLATFORM_DIRS: 1
+  PREFECT_API_URL: "http://127.0.0.1:4200/api"
+  BLOCK_MES_CALCITE: "block-aveva-calcite-dev"
+  BLOCK_SYLOB: "block-sylob-test"
+  SYLOB_INSTANCE: "bac_a_sable_prod"
+  BLOC_AVEVA_CALCITE_DB: "MESDB"
+
+
+stages:
+  - test
+
+pytest_and_flake8:
+  stage: test
+  image: python:3.10
+  before_script:
+    - apt-get update
+  script:
+    - pip install pandas pytest flake8 jupyter
+    - flake8 --max-line-length=150 .
+    - python3 -m pytest tests/logger_test.py
+
+

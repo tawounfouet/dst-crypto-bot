@@ -2,30 +2,37 @@ import logging
 import os
 from datetime import datetime
 
+
 class IncrementalLogger:
-    def __init__(self, base_filename, log_dir='/data/logs'):
+    def __init__(self, base_filename, log_dir='./shared_data/logs'):
+        print(f"Init Logger filename {base_filename} ; current {os.getcwd()} ; to {log_dir}")
         self.base_filename = base_filename
         self.log_dir = log_dir
         self.logger = logging.getLogger(__name__)
         self.setup_logger()
 
     def setup_logger(self):
-        if not os.path.exists(self.log_dir):
-            os.makedirs(self.log_dir)
+        try:
+            if not os.path.exists(self.log_dir):
+                os.makedirs(self.log_dir, exist_ok=True)
+                print(f"Create {self.log_dir}")
+        except Exception as e:
+            print(e.__traceback__)
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         log_filename = f"{self.base_filename}_{timestamp}.log"
         full_path = os.path.join(self.log_dir, log_filename)
 
         file_handler = logging.FileHandler(full_path, mode='w')
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s')
         file_handler.setFormatter(formatter)
 
         self.logger.addHandler(file_handler)
         self.logger.setLevel(logging.DEBUG)
 
         # Ajout de la version et des auteurs au début du fichier
-        from crypto_bot import VERSION, AUTHORS
+        from src.crypto_bot import VERSION, AUTHORS
         self.logger.info(f"Version: {VERSION}")
         self.logger.info(f"Authors: {', '.join(AUTHORS)}")
 
@@ -43,4 +50,3 @@ class IncrementalLogger:
 
     def critical(self, message):
         self.logger.critical(message)
-  
