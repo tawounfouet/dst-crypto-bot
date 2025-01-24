@@ -1,10 +1,10 @@
-Pre-commit Log - Started at 2025-01-24 14:06:23
+Pre-commit Log - Started at 2025-01-24 15:17:20
 ==================================================
-[2025-01-24 14:06:23] ==================================================
-[2025-01-24 14:06:23] Running: flake8 . --max-line-length=150
-[2025-01-24 14:06:23] Flake8 check passed successfully!
-[2025-01-24 14:06:23] ==================================================
-[2025-01-24 14:06:23] Running: python3 -m pytest ./tests/logger_test.py
+[2025-01-24 15:17:20] ==================================================
+[2025-01-24 15:17:20] Running: flake8 . --max-line-length=150
+[2025-01-24 15:17:20] Flake8 check passed successfully!
+[2025-01-24 15:17:20] ==================================================
+[2025-01-24 15:17:20] Running: python3 -m pytest ./tests/logger_test.py
 ============================= test session starts ==============================
 platform linux -- Python 3.10.12, pytest-8.3.3, pluggy-1.5.0
 rootdir: /home/avriln/DataScientest/Projet/dst-crypto-bot
@@ -15,7 +15,7 @@ collected 4 items
 tests/logger_test.py ....                                                [100%]
 
 ============================== 4 passed in 0.01s ===============================
-[2025-01-24 14:06:23] logger_test.py passed successfully!
-[2025-01-24 14:06:23] All checks passed. Proceeding with commit.
+[2025-01-24 15:17:20] logger_test.py passed successfully!
+[2025-01-24 15:17:20] All checks passed. Proceeding with commit.
 ==================================================
-Pre-commit Log - Finished at 2025-01-24 14:06:23
+Pre-commit Log - Finished at 2025-01-24 15:17:20
