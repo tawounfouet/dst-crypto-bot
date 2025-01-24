@@ -1,10 +1,10 @@
-Pre-commit Log - Started at 2025-01-24 15:17:20
+Pre-commit Log - Started at 2025-01-24 15:21:55
 ==================================================
-[2025-01-24 15:17:20] ==================================================
-[2025-01-24 15:17:20] Running: flake8 . --max-line-length=150
-[2025-01-24 15:17:20] Flake8 check passed successfully!
-[2025-01-24 15:17:20] ==================================================
-[2025-01-24 15:17:20] Running: python3 -m pytest ./tests/logger_test.py
+[2025-01-24 15:21:55] ==================================================
+[2025-01-24 15:21:55] Running: flake8 . --max-line-length=150
+[2025-01-24 15:21:55] Flake8 check passed successfully!
+[2025-01-24 15:21:55] ==================================================
+[2025-01-24 15:21:55] Running: python3 -m pytest ./tests/logger_test.py
 ============================= test session starts ==============================
 platform linux -- Python 3.10.12, pytest-8.3.3, pluggy-1.5.0
 rootdir: /home/avriln/DataScientest/Projet/dst-crypto-bot
@@ -14,8 +14,20 @@ collected 4 items
 
 tests/logger_test.py ....                                                [100%]
 
-============================== 4 passed in 0.01s ===============================
-[2025-01-24 15:17:20] logger_test.py passed successfully!
-[2025-01-24 15:17:20] All checks passed. Proceeding with commit.
+=============================== warnings summary ===============================
+../../../.local/lib/python3.10/site-packages/_pytest/config/__init__.py:1441
+  /home/avriln/.local/lib/python3.10/site-packages/_pytest/config/__init__.py:1441: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+../../../.local/lib/python3.10/site-packages/_pytest/config/__init__.py:1441
+  /home/avriln/.local/lib/python3.10/site-packages/_pytest/config/__init__.py:1441: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 4 passed, 2 warnings in 0.01s =========================
+[2025-01-24 15:21:55] logger_test.py passed successfully!
+[2025-01-24 15:21:55] All checks passed. Proceeding with commit.
 ==================================================
-Pre-commit Log - Finished at 2025-01-24 15:17:20
+Pre-commit Log - Finished at 2025-01-24 15:21:55

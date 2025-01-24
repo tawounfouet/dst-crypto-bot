@@ -23,6 +23,6 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -v --cov=src
+          pytest -v --cov=src --cov-report=term-missing
 
 
